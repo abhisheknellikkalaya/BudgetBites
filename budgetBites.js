@@ -4,7 +4,7 @@ async function generateMealPlan() {
     const budget = document.getElementById('monthlyBudget').value;
     const health = document.getElementById('healthSpecification').value;
 
-    const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=ba00a93c69384d4dbdcf98bb53557617&number=${numberOfMeals}&diet=${health}`);
+    const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=Api key&number=${numberOfMeals}&diet=${health}`);
     const data = await response.json();
 
     const mealPlanTable = document.getElementById('meal-plan-table');
