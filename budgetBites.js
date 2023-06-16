@@ -8,42 +8,44 @@ async function generateMealPlan() {
     const data = await response.json();
 
     const mealPlanTable = document.getElementById('meal-plan-table');
+    const mealPlanTableBody = mealPlanTable.getElementsByTagName('tbody')[0];
 
     // Clear out any existing rows in the table
-    mealPlanTable.innerHTML = '';
+    mealPlanTableBody.innerHTML = '';
 
     // Loop over the meal plan data and create new rows in the table
     for (let meal of data.results) {
         const row = document.createElement('tr');
 
         const cellDay = document.createElement('td');
-        cellDay.textContent = meal.day;
+        cellDay.textContent = meal.day || ''; // Check if 'day' property exists in the meal object
         row.appendChild(cellDay);
 
         const cellName = document.createElement('td');
-        cellName.textContent = meal.title;
+        cellName.textContent = meal.title || ''; // Check if 'title' property exists in the meal object
         row.appendChild(cellName);
 
         const cellImage = document.createElement('td');
         const image = document.createElement('img');
-        image.src = meal.image;
-        image.alt = meal.title;
+        image.src = meal.image || ''; // Check if 'image' property exists in the meal object
+        image.alt = meal.title || ''; // Check if 'title' property exists in the meal object
         cellImage.appendChild(image);
         row.appendChild(cellImage);
 
         const cellIngredients = document.createElement('td');
         const ingredientsList = document.createElement('ul');
-        for (let ingredient of meal.extendedIngredients) {
-            const listItem = document.createElement('li');
-            listItem.textContent = ingredient.original;
-            ingredientsList.appendChild(listItem);
+        if (meal.extendedIngredients) {
+            for (let ingredient of meal.extendedIngredients) {
+                const listItem = document.createElement('li');
+                listItem.textContent = ingredient.original || ''; // Check if 'original' property exists in the ingredient object
+                ingredientsList.appendChild(listItem);
+            }
         }
         cellIngredients.appendChild(ingredientsList);
         row.appendChild(cellIngredients);
 
-        mealPlanTable.appendChild(row);
+        mealPlanTableBody.appendChild(row);
     }
 }
 
-// Attach the event listener to the button
-document.getElementById('generateButton').addEventListener('click', generateMealPlan);
+// Attach the event listener
