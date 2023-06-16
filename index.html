@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meal Preparation Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        select, button { padding: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Meal Preparation Generator</h1>
+
+    <form id="mealForm">
+        <div class="form-group">
+            <label for="numberOfMeals">Number of Meals:</label>
+            <select id="numberOfMeals">
+                <option value="2">Two meals</option>
+                <option value="3">Three meals</option>
+                <option value="5">Five meals</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="monthlyBudget">Monthly Budget:</label>
+            <select id="monthlyBudget">
+                <option value="0-5k">0-5k</option>
+                <option value="5-10k">5-10k</option>
+                <option value="10-15k">10-15k</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="healthSpecification">Health Specification:</label>
+            <select id="healthSpecification">
+                <option value="vegan">Vegan</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="alcohol-free">Alcohol-Free</option>
+                <option value="peanut-free">Peanut-Free</option>
+            </select>
+        </div>
+
+        <button type="button" id="generateButton">Generate Meal Options</button>
+    </form>
+</body>
+</html>
