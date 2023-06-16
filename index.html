@@ -2,51 +2,58 @@
 <html>
 <head>
     <title>Meal Preparation Generator</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; }
-        select, button { padding: 10px; font-size: 16px; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Meal Preparation Generator</h1>
+    <div class="container">
+        <h1 class="title">Meal Preparation Generator</h1>
 
-    <form id="mealForm">
-        <div class="form-group">
-            <label for="numberOfMeals">Number of Meals:</label>
-            <select id="numberOfMeals">
-                <option value="2">Two meals</option>
-                <option value="3">Three meals</option>
-                <option value="5">Five meals</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="monthlyBudget">Monthly Budget:</label>
-            <select id="monthlyBudget">
-                <option value="0-5k">0-5k</option>
-                <option value="5-10k">5-10k</option>
-                <option value="10-15k">10-15k</option>
-            </select>
-        </div>
+        <form id="mealForm">
+            <div class="form-group">
+                <label for="numberOfMeals">Number of Meals:</label>
+                <select id="numberOfMeals">
+                    <option value="2">Two meals</option>
+                    <option value="3">Three meals</option>
+                    <option value="5">Five meals</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="monthlyBudget">Monthly Budget:</label>
+                <select id="monthlyBudget">
+                    <option value="0-5k">0-5k</option>
+                    <option value="5-10k">5-10k</option>
+                    <option value="10-15k">10-15k</option>
+                </select>
+            </div>
 
-        <div class="form-group">
-            <label for="healthSpecification">Health Specification:</label>
-            <select id="healthSpecification">
-                <option value="vegan">Vegan</option>
-                <option value="vegetarian">Vegetarian</option>
-                <option value="alcohol-free">Alcohol-Free</option>
-                <option value="peanut-free">Peanut-Free</option>
-            </select>
-        </div>
+            <div class="form-group">
+                <label for="healthSpecification">Health Specification:</label>
+                <select id="healthSpecification">
+                    <option value="vegan">Vegan</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="alcohol-free">Alcohol-Free</option>
+                    <option value="peanut-free">Peanut-Free</option>
+                </select>
+            </div>
 
-        <button type="button" id="generateButton">Generate Meal Options</button>
-    </form>
+            <button type="button" id="generateButton">Generate Meal Options</button>
+        </form>
 
-    <table id="meal-plan-table">
-        <!-- The table will be dynamically populated with the meal plan -->
-    </table>
+        <table id="meal-plan-table">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Meal Name</th>
+                    <th>Image</th>
+                    <th>Ingredients</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- The table will be dynamically populated with the meal plan -->
+            </tbody>
+        </table>
+    </div>
 
     <script src="budgetBites.js"></script>
 </body>
